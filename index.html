@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Formularios y Drag & Drop</title>
+</head>
+<body>
+    <form id="enviar_formulario" method="post">
+        <fieldset>
+            <br>
+            <legend>Datos del usuario</legend>
+            <label for="campo_nombre">Nombre: </label>
+            <input id="campo_nombre" type="text" placeholder="Introduce tu nombre" autofocus><br><br>
+            <!-- CAMPO ESPECIAL PARA Nº DE TEL. (no visto en clase) -->
+            <label for="campo_telefono">Teléfono: </label>
+            <input id=campo_telefono type="text" placeholder="Patrón: 123-456-789"><br><br>
+            <!-- ALARGAR ESTE CAMPO -->
+            <label for="campo_email">E-mail: </label>
+            <input id="campo_email" type="email" placeholder="Introduce tu dirección de correo electrónico" ><br><br>
+        </fieldset>
+        <fieldset>
+            <br>
+            <!-- ESTE CAMPO OCUPA 50% -->
+            <legend>Libros</legend>
+            <input id="campo_libros" type="text">
+            <label for="campo_cantidad">Cantidad (Máx 5): </label>
+            <input id="campo_cantidad" type="number" min="1" max="5" step="1" value="1">
+        </fieldset>
+        <fieldset>
+            <legend>File Upload</legend>
+            <div>
+                <label for="subir_archivo_btn">Elige los ficheros a subir:</label>
+                <input type="file" id="subir_archivo_btn" multiple>
+                <!-- NO SÉ POR QUÉ NO COGE EL ESTILO QUE DEBERÍA -->
+                <div id="filedrag">o arrastra aquí los ficheros</div>
+            </div>
+        </fieldset>
+        <input type="button" id="enviar" value="Enviar">
+        <div id="mensajes"><p>Mensajes de estado</p></div>
+    </form>
+</body>
+</html>
