@@ -7,7 +7,8 @@
 	// output information
 	function output(msg) {
 		var m = $id("messages");
-		m.innerHTML = msg + m.innerHTML;
+		//m.innerHTML = msg + m.innerHTML;
+		m.innerHTML += msg;
 	}
 
 
