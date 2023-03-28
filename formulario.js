@@ -49,7 +49,7 @@ function validarCampoCantidadLibros(pCampoCantidad, pErrorLibros) {
 }
 
 function validarCampoTel(pCampoTel){
-  var formato=/^(\d{3}[-]?){2}\d{3}$/;
+  var formato=/^(\d{3}[- ]?){2}\d{3}$/;
     if (!formato.test(pCampoTel.value)){
         let avisoTel = document.createElement("p");
         avisoTel.innerHTML = "El campo del telefono debe contener el patrón 123(-)456(-)789";
