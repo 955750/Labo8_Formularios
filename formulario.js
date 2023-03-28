@@ -9,9 +9,11 @@ function validacion(){
     let divLibros = document.getElementById("div_libros");
     let campoCantidadLibros = document.getElementById("campo_cantidad");
     let campoTel= document.getElementById("campo_telefono");
+    let campoEmail= document.getElementById("campo_email");
 
     validarCampoNombre(campoNombre);
     validarCampoTel(campoTel);
+    validarCampoEmail(campoEmail);
     let pErrorLibros = validarCampoLibros(campoLibros, divLibros);
     validarCampoCantidadLibros(campoCantidadLibros, pErrorLibros);
 
@@ -49,7 +51,8 @@ function validarCampoCantidadLibros(pCampoCantidad, pErrorLibros) {
 }
 
 function validarCampoTel(pCampoTel){
-  var formato=/^(\d{3}[- ]?){2}\d{3}$/;
+  var formato=/^(\d{3}[- ]{1}){2}\d{3}$/;
+  //d= 0-9-ko zenbakia
     if (!formato.test(pCampoTel.value)){
         let avisoTel = document.createElement("p");
         avisoTel.innerHTML = "El campo del telefono debe contener el patrón 123(-)456(-)789";
@@ -57,3 +60,14 @@ function validarCampoTel(pCampoTel){
         pCampoTel.insertAdjacentElement("afterend", avisoTel);
     }
 }
+
+function validarCampoEmail(pCampoEmail){
+    var formato= /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+    //w=a-z,A-Z eta 0-9     +=1 edo 1>  ?=0/1 *=0 edo 0>
+      if (!formato.test(pCampoEmail.value)){
+          let avisoEmail = document.createElement("p");
+          avisoEmail.innerHTML = "El campo del email es incorrecto. Debe tener el siguiente formato:hola@gmail.com";
+          avisoEmail.style.color = "orange";
+          pCampoEmail.insertAdjacentElement("afterend", avisoEmail);
+      }
+  }
