@@ -1,51 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <script src="formulario.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <title>Formularios y Drag & Drop</title>
-</head>
-<body>
-    <form id="enviar_formulario" method="post" onsubmit="return validacion()">
-        <fieldset>
-            <br>
-            <legend>Datos del usuario</legend>
-            <label for="campo_nombre">Nombre: </label>
-            <input id="campo_nombre" type="text" placeholder="Introduce tu nombre" autofocus> <br><br>
-            <!-- CAMPO ESPECIAL PARA Nº DE TEL. : pattern:"[0-9]{3}[- ][0-9]{3}[- ][0-9]{3}" -->
-            <label for="campo_telefono">Teléfono: </label>
-            <input id="campo_telefono" type="tel" placeholder="Patrón: 123-456-789"><br><br>
-            <!-- ALARGAR ESTE CAMPO -->
-            <label for="campo_email">E-mail: </label>
-            <input id="campo_email" type="email" placeholder="Introduce tu dirección de correo electrónico" ><br><br>
-        </fieldset>
-        <fieldset>
-            <br>
-            <legend>Libros</legend>
-            <div id="div_libros">
-                <input list="libros" id="campo_libros" type="text">
-                <datalist id="libros">
-                    <option value="Libro 1">
-                    <option value="Libro 2">
-                    <option value="Libro 3">
-                    <option value="Libro 4">
-                    <option value="Libro 5">
-                </datalist>
-                <label for="campo_cantidad">Cantidad (Máx 5): </label>
-                <input id="campo_cantidad" type="number" min="1" max="5" step="1">
-            </div>
-        </fieldset>
-        <fieldset>
-            <legend>File Upload</legend>
-            <div>
-                <label for="subir_archivo_btn">Elige los ficheros a subir:</label>
-                <input type="file" id="subir_archivo_btn" multiple>
-                <div id="filedrag">o arrastra aquí los ficheros</div>
-            </div>
-        </fieldset>
-        <input type="submit" id="enviar" value="Enviar">
-        <div id="mensajes"><p>Mensajes de estado</p></div>
-    </form>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <script src="formulario.js"></script>
+        <link rel="stylesheet" type="text/css" media="all" href="filedrag.css" />
+        <title>Formularios y Drag & Drop</title>
+    </head>
+    <body>
+        <form id="upload" method="POST" enctype="multipart/form-data" onsubmit="return validacion()">
+            <fieldset>
+                <br>
+                <legend>Datos del usuario</legend>
+                <label for="campo_nombre">Nombre: </label>
+                <input id="campo_nombre" type="text" placeholder="Introduce tu nombre" autofocus> <br><br>
+                <!-- CAMPO ESPECIAL PARA Nº DE TEL. : pattern:"[0-9]{3}[- ][0-9]{3}[- ][0-9]{3}" -->
+                <label for="campo_telefono">Teléfono: </label>
+                <input id="campo_telefono" type="tel" placeholder="Patrón: 123-456-789"><br><br>
+                <!-- ALARGAR ESTE CAMPO -->
+                <label for="campo_email">E-mail: </label>
+                <input id="campo_email" type="email" placeholder="Introduce tu dirección de correo electrónico" ><br><br>
+            </fieldset>
+            <fieldset>
+                <br>
+                <legend>Libros</legend>
+                <div id="div_libros">
+                    <input list="libros" id="campo_libros" type="text">
+                    <datalist id="libros">
+                        <option value="Libro 1">
+                        <option value="Libro 2">
+                        <option value="Libro 3">
+                        <option value="Libro 4">
+                        <option value="Libro 5">
+                    </datalist>
+                    <label for="campo_cantidad">Cantidad (Máx 5): </label>
+                    <input id="campo_cantidad" type="number" min="1" max="5" step="1">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>HTML File Upload</legend>
+                <div>
+                    <label for="fileselect">Elige los ficheros a subir:</label>
+                    <input type="file" id="fileselect" name="fileselect" multiple />
+                    <div id="filedrag">or drop files here</div>
+                </div>
+            </fieldset>
+            <input type="submit" id="enviar" value="Enviar">
+        </form>
+        <div id="messages"><p>Mensajes de estado</p></div>
+        <script src="filedrag.js"></script>
+    </body>
 </html>
